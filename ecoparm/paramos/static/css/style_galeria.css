@@ -1,0 +1,451 @@
+/* Establece los estilos básicos para todos los elementos */
+*{
+    padding: 0; /* Elimina el relleno por defecto */
+    margin: 0; /* Elimina el margen por defecto */
+    text-decoration: none; /* Elimina el subrayado de los enlaces */
+    list-style: none; /* Elimina los puntos de las listas */
+    box-sizing: border-box; /* Incluye el padding y el borde dentro del tamaño total de un elemento */
+}
+
+/* Estilos para el cuerpo de la página */
+body {
+    background: url(imagenes/fondo.jpg) no-repeat fixed center center / cover; /* Fondo de la página con una imagen */
+    height: 100vh; /* Altura completa de la ventana del navegador */
+    margin: 0; /* Elimina márgenes por defecto */
+    display: flex; /* Utiliza flexbox para la disposición del contenido */
+    flex-direction: column; /* Coloca los elementos de manera vertical */
+}
+
+h1 {
+    text-align: center;  /* Alinea el texto de los párrafos de tipo h4 de forma justificada */
+    font-family: "Neonderthaw", cursive;;
+}
+
+/* Estilo para los títulos h4 */
+h4 {
+    text-align: justify;  /* Alinea el texto de los párrafos de tipo h4 de forma justificada */
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 19px;
+}
+
+/* Estilo para la barra de navegación */
+nav{
+    background: linear-gradient(-135deg, #32794a, #0c0c0c); /* Fondo de la barra con un gradiente */
+    height: 75px; /* Altura de la barra de navegación */
+    width: 100%; /* Ancho completo */
+}
+
+/* Estilo para el título dentro del enlace */
+.titulo {
+    font-family: "Allura", cursive;    /* Establece la fuente del título */
+    font-size: 70px;  /* Tamaño de fuente de 50px */
+    color: #ffffff;  /* Color blanco con opacidad */
+    margin-left: 200px;  /* Margen a la izquierda para separar el logo y el texto */
+    transition: all 0.5s ease;  /* Transición suave de todos los estilos en 0.5 segundos */
+}
+
+/* Estilo para el enlace principal (contenedor del logo y título) */
+.enlace {
+    position: absolute;  /* Posiciona el enlace de manera absoluta */
+    padding: 1px;  /* Añade un pequeño padding */
+    display: flex;  /* Flexbox para alinear el contenido */
+}
+
+.logoeco {
+    height: 65px;
+    margin-left: 10px;
+    margin-top: 3px;
+}
+
+.logo {
+    height: 50px;
+    margin-left: 30px;
+    margin-top: 9px;
+}
+
+/* Estilo para la lista de navegación */
+nav ul{
+    float: right; /* Desplaza la lista a la derecha */
+    margin-right: 20px; /* Añade un margen derecho */
+}
+
+/* Estilo para cada ítem de la lista */
+nav ul li{
+    display: inline-block; /* Muestra los elementos en línea */
+    line-height: 80px; /* Ajusta la altura de la línea */
+    margin: 0 5px; /* Añade márgenes laterales */
+}
+
+/* Estilo para los enlaces dentro de los ítems de la lista */
+nav ul li a{
+    color: #ffffff;  /* Color del texto blanco */
+    font-size: 20px;  /* Tamaño de fuente de los enlaces */
+    padding: 7px 13px;  /* Espaciado dentro de los enlaces */
+    border-radius: 3px;  /* Bordes redondeados de 3px en los enlaces */
+    text-transform: uppercase;  /* Convierte el texto de los enlaces a mayúsculas */
+    font-family: "Shrikhand", serif;  /* Establece la fuente del título */
+}
+
+/* Estilo para el enlace activo o al pasar el cursor */
+li a.active, li a:hover{
+    background: none;  /* Sin fondo cuando el enlace está activo o se pasa el mouse por encima */
+    color: #4CAF50;  /* Cambia el color a negro cuando el enlace está activo o en hover */
+    transition: .5s;  /* Aplica una transición suave al cambio de color */
+}
+
+/* Estilo para el botón del menú (en móviles) */
+.checkbtn{
+    font-size: 30px; /* Tamaño de la fuente */
+    color: #FFF; /* Color blanco */
+    float: right; /* Desplaza el botón a la derecha */
+    line-height: 80px; /* Alinea verticalmente el botón */
+    margin-right: 40px; /* Añade margen derecho */
+    cursor: pointer; /* Cambia el cursor a una mano */
+    display: none; /* Oculta el botón por defecto */
+}
+
+/* El input de tipo checkbox es invisible por defecto */
+#check{
+    display: none; /* Oculta el checkbox */
+}
+
+/* Estilo para la sección principal que se expande */
+.main{
+    flex-grow: 1; /* Permite que el área principal crezca */
+}
+
+/* Estilo para la sección que contiene el portafolio de imágenes */
+.fondo{
+    max-width: 70%; /* Establece un ancho máximo del 70% */
+    height: auto; /* Altura automática */
+    margin: 10px auto; /* Márgenes automáticos para centrar */
+    background: #fefae0f0; /* Fondo blanco con opacidad */
+    color: #000000; /* Color de texto negro */
+    padding: 10px; /* Relleno interior */
+    border-radius: 35px; /* Bordes redondeados */
+    box-shadow: 0px 15px 20px rgba(0,0,0,0.1); /* Sombra sutil */
+    display: flex; /* Usando flexbox para organizar los elementos */
+    flex-wrap: wrap; /* Permite que los elementos se envuelvan */
+    gap: 15px; /* Espacio entre los elementos */
+    padding: 20px; /* Relleno interior */
+    justify-content: center; /* Centra los elementos horizontalmente */
+}
+
+/* Estilo para el contenedor de imágenes */
+.container {
+    display: flex; /* Usando flexbox */
+    flex-wrap: wrap; /* Permite que las imágenes se envuelvan */
+    gap: 35px; /* Espacio entre las imágenes */
+    justify-content: center; /* Centra las imágenes */
+}
+
+/* Estilo para cada imagen */
+.image {
+    width: 200px; /* Ancho de cada imagen */
+    height: 160px; /* Mantiene la proporción de la imagen */
+    object-fit: cover; /* Ajusta la imagen para cubrir el contenedor */
+    transition: transform 0.3s ease, opacity 0.3s ease; /* Transiciones suaves */
+    cursor: pointer; /* Cambia el cursor al pasar sobre la imagen */
+    border-radius: 25px; /* Bordes redondeados */
+    box-shadow: 0px 15px 25px rgba(0, 0, 0, 0.7);}
+
+/* Efecto de hover en las imágenes */
+.image:hover {
+    transform: scale(1.2); /* Aumenta el tamaño de la imagen al pasar el cursor */
+    align-items: auto; /* Ajusta la alineación */
+}
+
+/* Estilo para el botón de volver arriba */
+#backToTop {
+    position: fixed; /* Fija el botón en la pantalla */
+    bottom: 100px; /* Alinea el botón al fondo */
+    right: 15px; /* Alinea el botón a la derecha */
+    background-color: #2c8824; /* Color de fondo */
+    color: rgb(255, 255, 255); /* Color del texto */
+    border: none; /* Elimina los bordes */
+    width: 50px; /* Ancho del botón */
+    height: 50px; /* Altura del botón */
+    border-radius: 50%; /* Bordes redondeados */
+    font-size: 15px; /* Tamaño de la fuente */
+    cursor: pointer; /* Cambia el cursor al pasar por encima */
+    z-index: 999; /* Asegura que el botón esté por encima de otros elementos */
+    text-align: center; /* Centra el texto dentro del botón */
+    font-size: 30px;
+    transition: all 0.3s ease;
+    display: none;
+    margin-bottom: 60px;
+    margin-right: 7px;
+}
+
+/* Estilo para el botón de volver arriba al pasar el cursor */
+#backToTop:hover {
+    transform: scale(1.1);
+}
+
+/* Footer */
+.site-footer {
+    background: linear-gradient(-135deg, #32794a, #0c0c0c);  /* Fondo degradado en el pie de página */
+    color: white;
+    padding: 4rem 0 2rem;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.footer-brand img {
+    height: 60px;
+    margin-bottom: 1rem;
+}
+
+.footer-brand p {
+    font-size: 1rem;
+    opacity: 0.8;
+}
+
+.footer-links h3, .footer-social h3, .footer-contactanos h3 {
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+    position: relative;
+    padding-bottom: 0.5rem;
+}
+
+.footer-links h3::after, .footer-social h3::after, .footer-contactanos h3::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 0;
+    width: 50px;
+    height: 2px;
+    background-color: var(--accent-color);
+}
+
+.footer-links ul, .footer-contactanos ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-links li, .footer-contactanos li {
+    margin-bottom: 0.8rem;
+}
+
+.footer-links a, .footer-contactanos a {
+    color: white;
+    opacity: 0.8;
+    transition: var(--transition);
+}
+
+.footer-links a:hover, .footer-contactanos a:hover {
+    opacity: 1;
+    padding-left: 5px;
+}
+
+/* Alineación de Síguenos y Contáctanos */
+.footer-social-contact {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 3rem;
+    text-align: center;
+}
+
+.footer-social, .footer-contactanos {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Estilo de los iconos sociales */
+.social-icons {
+    display: flex;
+    gap: 1rem;
+}
+
+.social-icons a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    color: white;
+    transition: var(--transition);
+}
+
+.social-icons a:hover {
+    background-color: var(--accent-color);
+    color: var(--text-dark);
+    transform: translateY(-3px);
+    background-color: #000000;
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 2rem;
+    margin-top: 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Media query para pantallas con un ancho máximo de 858px */
+@media (max-width: 950px){
+    .checkbtn{
+        display: block;  /* Muestra el icono del menú hamburguesa en pantallas pequeñas */
+    }
+    ul{
+        position: fixed;  /* Fija el menú en la pantalla */
+        width: 100%;  /* El menú ocupa todo el ancho */
+        height: 100vh;  /* El menú ocupa toda la altura de la ventana */
+        background: linear-gradient(225deg, #32794a, #0c0c0c);  /* Fondo degradado */
+        top: 75px;  /* Coloca el menú debajo del navbar */
+        left: -100%;  /* Inicialmente el menú está oculto a la izquierda */
+        text-align: center;  /* Centra el texto en los elementos del menú */
+        transition: all .5s;  /* Transición suave al abrir o cerrar el menú */
+    }
+    nav ul li{
+        display: block;  /* Los elementos del menú se muestran en bloque (uno debajo del otro) */
+        margin: 50px 0;  /* Espaciado entre los elementos */
+        line-height: 30px;  /* Reduce la altura de las líneas */
+    }
+    nav ul li a{
+        font-size: 20px;  /* Aumenta el tamaño de la fuente de los enlaces */
+    }
+    li a:hover, li a.active{
+        background: none;  /* Sin fondo cuando el enlace está activo o se pasa el mouse */
+        color: #4CAF50;  /* Cambia el color a negro */
+        transition: .5s;  /* Transición suave */
+    }
+    #check:checked ~ ul{
+        left: 0;  /* Muestra el menú cuando el checkbox está marcado */
+    }
+    .logoeco {
+        height: 60px;
+    }
+    .texto_footer {
+        font-size: 15px;
+    }
+}
+
+/* Estilo para el overlay */
+.overlay-loader {
+    position: fixed; /* Posiciona la capa sobre el contenido */
+    top: 0; /* Alinea la capa al borde superior */
+    left: 0; /* Alinea la capa al borde izquierdo */
+    width: 100%; /* Ancho completo */
+    height: 100%; /* Altura completa */
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo oscuro */
+    display: flex; /* Flexbox para centrar el contenido */
+    justify-content: center; /* Centra horizontalmente */
+    align-items: center; /* Centra verticalmente */
+    z-index: 9999; /* Asegura que la capa esté sobre otros elementos */
+}
+
+/* Estilo para el loader */
+.loader {
+    border: 6px solid #000000; /* Borde negro */
+    border-top: 6px solid #32794a; /* Borde superior de color verde */
+    border-radius: 50%; /* Forma circular */
+    width: 50px; /* Ancho */
+    height: 50px; /* Alto */
+    animation: spin 2s linear infinite; /* Animación de giro */
+    position: absolute; /* Posición absoluta */
+    top: 50%; /* Centra verticalmente */
+    left: 50%; /* Centra horizontalmente */
+    margin-top: -60px; /* Ajuste para centrar */
+    margin-left: -60px; /* Ajuste para centrar */
+}
+
+/* Animación de giro */
+@keyframes spin {
+    0% { transform: rotate(0deg); } /* Empieza en 0 grados */
+    100% { transform: rotate(360deg); } /* Gira hasta 360 grados */
+}
+
+/* Estilo para el overlay (cargando) */
+#overlay-loader {
+    position: fixed; /* Posiciona la capa sobre el contenido */
+    top: 0; /* Alinea la capa al borde superior */
+    left: 0; /* Alinea la capa al borde izquierdo */
+    width: 100%; /* Ancho completo */
+    height: 100%; /* Altura completa */
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo oscuro */
+    display: flex; /* Flexbox para centrar el contenido */
+    justify-content: center; /* Centra horizontalmente */
+    align-items: center; /* Centra verticalmente */
+    z-index: 9999; /* Asegura que la capa esté sobre otros elementos */
+    display: none; /* Se oculta inicialmente */
+}
+
+/* Estilo para el overlay de la galería */
+#image-overlay {
+    position: fixed; /* Posiciona el overlay sobre la página */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8); /* Fondo oscuro */
+    display: none; /* Oculto por defecto */
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* Asegura que el overlay esté por encima de otros elementos */
+}
+
+.expanded-image-container {
+    position: relative;
+    text-align: center;
+}
+
+/* Ajustar el tamaño máximo de la imagen ampliada al 80% */
+.expanded-image {
+    max-width: 80%;
+    max-height: 80%;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+/* Botones de navegación fijos en los lados */
+.nav-btn {
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(255, 255, 255, 0.7);
+    border: none;
+    padding: 15px;
+    font-size: 30px;
+    cursor: pointer;
+    border-radius: 50%;
+    transition: background-color 0.3s ease;
+    z-index: 1100;
+}
+
+#prev-btn {
+    left: 10px;
+}
+
+#next-btn {
+    right: 10px;
+}
+
+.nav-btn:hover {
+    background-color: rgba(255, 255, 255, 1);
+}
+
+/* Estilo para el botón de cerrar fijo en la esquina superior derecha de la página */
+.close-btn {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    font-size: 40px;
+    color: white;
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 1100; /* Asegura que el botón esté encima de todo */
+}

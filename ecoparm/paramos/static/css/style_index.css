@@ -1,0 +1,471 @@
+/* Reinicio de estilos básicos */
+*{
+    padding: 0;  /* Elimina el padding por defecto de todos los elementos */
+    margin: 0;  /* Elimina el margin por defecto de todos los elementos */
+    text-decoration: none;  /* Elimina el subrayado de los enlaces */
+    list-style: none;  /* Elimina los puntos de las listas */
+    box-sizing: border-box;  /* Asegura que el padding y el border no aumenten el tamaño total de los elementos */
+}
+
+/* Fondo de la página */
+body {
+     /* background-color: #b6cb9e; */
+    background: url(imagenes/fondo.jpg) no-repeat fixed center center / cover;   /*Establece una imagen de fondo que cubra toda la página */
+    height: 100vh;  /* El alto del body es el 100% de la altura de la ventana */
+    margin: 0;  /* Elimina los márgenes por defecto */
+    display: flex;  /* Utiliza flexbox para la disposición de los elementos */
+    flex-direction: column;  /* Organiza los elementos hijos en una columna */
+}
+
+h2 {
+    text-align: center;  /* Alinea el texto de los párrafos de tipo h4 de forma justificada */
+    font-family: "Neonderthaw", cursive;
+}
+
+h4 {
+    text-align: justify;  /* Alinea el texto de los párrafos de tipo h4 de forma justificada */
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 19px;
+}
+
+/* Estilos para el menú de navegación */
+nav{
+    background: linear-gradient(-135deg, #32794a, #0c0c0c);  /* Degradado de color en el fondo del menú */
+    height: 75px;  /* Define la altura del menú de navegación */
+    width: 100%;  /* El menú ocupa todo el ancho disponible */
+}
+
+.video {
+    border-radius: 25px;
+}
+
+.logoeco {
+    height: 65px;
+    margin-left: 10px;
+    margin-top: 3px;
+}
+
+.logo {
+    height: 50px;
+    margin-left: 30px;
+    margin-top: 9px;
+}
+
+.video-container {
+    width: 100%;  /* El contenedor ocupa el 100% del ancho disponible */
+    max-width: 1020px;  /* Limita el ancho máximo del video */
+    margin: 0 auto;  /* Centra el video en la pantalla */
+}
+
+/* Estilo para el video */
+.video {
+    width: 1020px;  /* Establece el tamaño base del video */
+    height: 630px;  /* Establece la altura base del video */
+    border-radius: 25px;  /* Opcional: bordes redondeados */
+}
+
+/* Estilo para los enlaces dentro de la etiqueta 'a' */
+.enlace {
+    position: absolute;  /* Posiciona de forma absoluta el enlace (generalmente para moverlo dentro de un contenedor) */
+    padding: 1px;  /* Agrega un pequeño espacio interior */
+    display: flex;  /* Establece un contenedor flexible */
+}
+
+nav ul{
+    float: right;  /* Flota el menú a la derecha */
+    margin-right: 20px;  /* Margen a la derecha del menú */
+}
+
+nav ul li{
+    display: inline-block;  /* Muestra los elementos de la lista de forma horizontal */
+    line-height: 80px;  /* Establece la altura de las líneas del menú */
+    margin: 0 5px;  /* Espacio entre los elementos de la lista */
+}
+
+nav ul li a{
+    color: #ffffff;  /* Color del texto blanco */
+    font-size: 20px;  /* Tamaño de fuente de los enlaces */
+    padding: 7px 13px;  /* Espaciado dentro de los enlaces */
+    border-radius: 3px;  /* Bordes redondeados de 3px en los enlaces */
+    text-transform: uppercase;  /* Convierte el texto de los enlaces a mayúsculas */
+    font-family: "Shrikhand", serif;  /* Establece la fuente del título */
+}
+
+li a.active, li a:hover{
+    background: none;  /* Sin fondo cuando el enlace está activo o se pasa el mouse por encima */
+    color: #4CAF50;  /* Cambia el color a negro cuando el enlace está activo o en hover */
+    transition: .5s;  /* Aplica una transición suave al cambio de color */
+}
+
+/* Estilo del menú hamburguesa para pantallas pequeñas */
+.checkbtn{
+    font-size: 30px;  /* Tamaño de la fuente del icono del menú */
+    color: #FFF;  /* Color blanco */
+    float: right;  /* Flota el icono a la derecha */
+    line-height: 80px;  /* La altura de la línea del icono */
+    margin-right: 40px;  /* Margen derecho */
+    cursor: pointer;  /* Aplica el cursor en forma de mano cuando se pasa por encima */
+    display: none;  /* Inicialmente no se muestra */
+}
+
+/* Oculta el checkbox */
+#check{
+    display: none;  /* No muestra el checkbox (solo se usa para el menú hamburguesa) */
+}
+
+/* Estilo para el contenedor del texto principal */
+.fondo{
+    max-width: 75%;  /* El contenedor no supera el 90% del ancho de la página */
+    height: auto;  /* La altura es automática según el contenido */
+    margin: 10px auto;  /* Centra el contenedor con márgenes automáticos */
+    background: #fefae0f0;  /* Fondo semi-transparente blanco */
+    color: #000000;  /* Texto negro */
+    padding: 30px;  /* Espaciado interno del contenedor */
+    border-radius: 35px;  /* Bordes redondeados */
+    box-shadow: 0px 15px 20px rgba(0,0,0,0.1);  /* Sombra suave alrededor del contenedor */
+}
+
+.fondo-buscar{
+    max-width: 75%;  /* El contenedor no supera el 90% del ancho de la página */
+    height: auto;  /* La altura es automática según el contenido */
+    margin: 10px auto;  /* Centra el contenedor con márgenes automáticos */
+    background: #fefae0f0;  /* Fondo semi-transparente blanco */
+    color: #000000;  /* Texto negro */
+    padding: 30px;  /* Espaciado interno del contenedor */
+    border-radius: 35px;  /* Bordes redondeados */
+    box-shadow: 0px 15px 20px rgba(0,0,0,0.1);  /* Sombra suave alrededor del contenedor */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Estilo de la sección principal */
+.section {
+    flex: 1;  /* La sección se expande para ocupar el espacio restante */
+    padding: 20px;  /* Espaciado interno */
+}
+
+.main {
+    flex-grow: 1;  /* La sección principal crece para ocupar el espacio restante */
+}
+
+/* Footer */
+.site-footer {
+    background: linear-gradient(-135deg, #32794a, #0c0c0c);  /* Fondo degradado en el pie de página */
+    color: white;
+    padding: 4rem 0 2rem;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.footer-brand img {
+    height: 60px;
+    margin-bottom: 1rem;
+}
+
+.footer-brand p {
+    font-size: 1rem;
+    opacity: 0.8;
+}
+
+.footer-links h3, .footer-social h3, .footer-contactanos h3 {
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+    position: relative;
+    padding-bottom: 0.5rem;
+}
+
+.footer-links h3::after, .footer-social h3::after, .footer-contactanos h3::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 0;
+    width: 50px;
+    height: 2px;
+    background-color: var(--accent-color);
+}
+
+.footer-links ul, .footer-contactanos ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-links li, .footer-contactanos li {
+    margin-bottom: 0.8rem;
+}
+
+.footer-links a, .footer-contactanos a {
+    color: white;
+    opacity: 0.8;
+    transition: var(--transition);
+}
+
+.footer-links a:hover, .footer-contactanos a:hover {
+    opacity: 1;
+    padding-left: 5px;
+}
+
+/* Alineación de Síguenos y Contáctanos */
+.footer-social-contact {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 3rem;
+    text-align: center;
+}
+
+.footer-social, .footer-contactanos {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Estilo de los iconos sociales */
+.social-icons {
+    display: flex;
+    gap: 1rem;
+}
+
+.social-icons a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    color: white;
+    transition: var(--transition);
+}
+
+.social-icons a:hover {
+    background-color: var(--accent-color);
+    color: var(--text-dark);
+    transform: translateY(-3px);
+    background-color: #000000;
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 2rem;
+    margin-top: 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+    .text-content {
+        column-count: 1;
+    }
+    
+    .weather-floating {
+        right: 1rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .hamburger {
+        display: block;
+    }
+    
+    .nav-menu {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 80%;
+        max-width: 400px;
+        height: 100vh;
+        background: linear-gradient(135deg, var(--primary-dark), var(--primary-color));
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        transition: var(--transition);
+        box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+    }
+    
+    .nav-menu.active {
+        right: 0;
+    }
+    
+    .nav-link {
+        margin: 1rem 0;
+        font-size: 1.2rem;
+    }
+    
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+    
+    .subtitle {
+        font-size: 1.2rem;
+    }
+    
+    .weather-floating {
+        top: auto;
+        bottom: 2rem;
+        transform: none;
+    }
+    
+    .weather-card {
+        top: auto;
+        bottom: 70px;
+        right: 0;
+        transform: none;
+    }
+    
+    .weather-floating:hover .weather-card {
+        right: 10px;
+        bottom: 80px;
+    }
+}
+
+@media (max-width: 576px) {
+    .hero h1 {
+        font-size: 2rem;
+    }
+    
+    .info-card, .video-section, .emergency-card {
+        padding: 1.5rem;
+    }
+    
+    .footer-container {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+    
+    .footer-links h3::after, .footer-social h3::after {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    
+    .social-icons {
+        justify-content: center;
+    }
+}
+
+/* Media queries para diseño responsive */
+
+@media (max-width: 950px){
+    .checkbtn{
+        display: block;  /* Muestra el icono del menú hamburguesa en pantallas pequeñas */
+    }
+    ul{
+        position: fixed;  /* Fija el menú en la pantalla */
+        width: 100%;  /* El menú ocupa todo el ancho */
+        height: 100vh;  /* El menú ocupa toda la altura de la ventana */
+        background: linear-gradient(225deg, #32794a, #0c0c0c);  /* Fondo degradado */
+        top: 75px;  /* Coloca el menú debajo del navbar */
+        left: -100%;  /* Inicialmente el menú está oculto a la izquierda */
+        text-align: center;  /* Centra el texto en los elementos del menú */
+        transition: all .5s;  /* Transición suave al abrir o cerrar el menú */
+    }
+    nav ul li{
+        display: block;  /* Los elementos del menú se muestran en bloque (uno debajo del otro) */
+        margin: 50px 0;  /* Espaciado entre los elementos */
+        line-height: 30px;  /* Reduce la altura de las líneas */
+    }
+    nav ul li a{
+        font-size: 20px;  /* Aumenta el tamaño de la fuente de los enlaces */
+    }
+    li a:hover, li a.active{
+        background: none;  /* Sin fondo cuando el enlace está activo o se pasa el mouse */
+        color: #4CAF50;  /* Cambia el color a negro */
+        transition: .5s;  /* Transición suave */
+    }
+    #check:checked ~ ul{
+        left: 0;  /* Muestra el menú cuando el checkbox está marcado */
+    }
+    .video {
+        width: 100%;  /* El video ocupa el 100% del contenedor */
+        height: 100%;  /* La altura se ajusta automáticamente manteniendo la proporción */
+    }
+    .logoeco {
+        height: 60px;
+    }
+    .texto_footer {
+        font-size: 15px;
+    }
+    #clima p {
+        font-size: 10px;
+    }
+    #clima h3 {
+        font-size: 15px;
+    }
+}
+
+/* Estilo para el loader */
+.loader {
+    border: 6px solid #000000;  /* Borde de 6px de color negro */
+    border-top: 6px solid #32794a;  /* Borde superior de color verde */
+    border-radius: 50%;  /* Hace el loader circular */
+    width: 50px;  /* Ancho del loader */
+    height: 50px;  /* Alto del loader */
+    animation: spin 2s linear infinite;  /* Aplica la animación de giro */
+    position: absolute;  /* Posiciona el loader de forma absoluta */
+    top: 50%;  /* Coloca el loader en el centro vertical */
+    left: 50%;  /* Coloca el loader en el centro horizontal */
+    margin-top: -60px;  /* Ajuste para centrarlo */
+    margin-left: -60px;  /* Ajuste para centrarlo */
+}
+
+/* Animación de giro */
+@keyframes spin {
+    0% { transform: rotate(0deg); }  /* Inicia el giro en 0 grados */
+    100% { transform: rotate(360deg); }  /* Finaliza el giro en 360 grados */
+}
+
+/* Estilo para el overlay (fondo oscuro cuando el loader está activo) */
+.overlay-loader {
+    position: fixed;  /* Posiciona la capa de carga de manera fija */
+    top: 0;  /* En la parte superior de la pantalla */
+    left: 0;  /* Alineado a la izquierda */
+    width: 100%;  /* Ancho completo */
+    height: 100%;  /* Altura completa */
+    background-color: rgba(0, 0, 0, 0.5);  /* Fondo semi-transparente negro */
+    display: flex;  /* Flexbox para centrar el contenido */
+    justify-content: center;  /* Centra el contenido horizontalmente */
+    align-items: center;  /* Centra el contenido verticalmente */
+    z-index: 9999;  /* Asegura que esté encima de otros elementos */
+}
+
+table {
+    width: 80%;
+    margin: 20px auto;
+    border-collapse: collapse;
+}
+
+th, td {
+    border: 1px solid #000000;
+    padding: 10px;
+    text-align: left;
+}
+
+th {
+    background-color: #32794a;
+    color: white;
+}
+
+input {
+    margin: 10px;
+    padding: 8px;
+    width: 50%;
+}
+
+/* Clase "video" (la que ya tienes en tu iframe) */
+.video {
+    width: 100%; /* Ocupa el 100% del contenedor */
+    aspect-ratio: 16 / 9; /* Relación de aspecto 16:9 (típica en YouTube) */
+    max-width: 800px; /* Límite máximo de ancho (opcional) */
+    height: auto; /* Altura automática basada en el aspect-ratio */
+    display: block;
+    margin: 0 auto; /* Centra el iframe */
+}

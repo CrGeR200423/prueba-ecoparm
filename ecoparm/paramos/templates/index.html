@@ -1,0 +1,192 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="{% static 'imagenes/logo_oficina_gestion_riesgo.png' %}">
+    <title> ECOPARM </title>
+    <link rel="stylesheet" href="{% static 'css/style_index.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style_accesibilidad.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style_clima.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style_loader.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Shrikhand&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Allura&display=swap" rel="stylesheet">
+    <script src="{% static 'js/script_loader.js' %}" defer></script>
+    <script src="{% static 'js/script_clima.js' %}" defer></script>
+    <script src="{% static 'js/script_nemergencias.js' %}" defer></script>
+    <script src="{% static 'js/script_accesibilidad2.js' %}" defer></script>
+</head>
+<body>
+    <div id="overlay">
+        <img class="loader-bird" src="{% static 'imagenes/fondo_loader.gif' %}" alt="Pájaro en los páramos">
+        <div class="loader-text">Cargando...</div>
+    </div>
+    
+    <nav>
+        <input type="checkbox" id="check">
+        <label for="check" class="checkbtn">
+            <i class="fas fa-bars"></i>
+        </label>
+        <a href="{% url 'index' %}" class="enlace">
+            <img src="{% static 'imagenes/logo_oficina_gestion_riesgo.png' %}" class="logoeco">
+        </a>
+        <ul>
+            <li><a href="{% url 'index' %}"><i class="fas fa-home"></i> Inicio</a></li>
+            <li><a href="{% url 'nosotros' %}"><i class="fas fa-users"></i> Nosotros</a></li>
+            <li><a href="{% url 'galeria' %}"><i class="fas fa-images"></i> Galería</a></li>
+            <li><a href="{% url 'login' %}"><i class="fas fa-sign-in-alt"></i> Login</a></li>
+        </ul>
+        
+    </nav>
+    <main>
+        <button id="toggleClima">
+            🌦️ <span id="textoClima" style="display: none;"></span>
+        </button>
+        <div id="clima">
+            <h3 id="ciudad">Sogamoso</h3>
+            <p id="temperatura">🌡️ --°C</p>
+            <p id="humedad">💧 Humedad: --%</p>
+            <p id="descripcion">☁️ --</p>
+        </div>
+    </main>
+    <section>
+        <br><br><br>
+        <div class="fondo">
+            <center>
+                <h2><i class="fas fa-mountain"></i> Páramo de Siscunsí: Un Paraíso Natural en Sogamoso, Boyacá! </h2>
+            </center>
+            <br>
+            <h4>
+                Enclavado en las alturas de los Andes colombianos, el Páramo de Siscunsí es un tesoro ecológico que deslumbra con su belleza imponente y su importancia ambiental. Ubicado en el municipio de Sogamoso, Boyacá, este ecosistema de alta montaña es una de las principales reservas hídricas de la región, albergando nacimientos de agua que alimentan quebradas y ríos fundamentales para la vida en el altiplano cundiboyacense.
+                Su paisaje, dominado por los majestuosos frailejones, la neblina que se desliza entre las montañas y las cristalinas lagunas, crea un escenario mágico donde la naturaleza se muestra en su máxima expresión. En este hábitat único conviven especies emblemáticas como el oso de anteojos, el venado de páramo, el águila real de montaña y una gran variedad de aves, lo que lo convierte en un destino ideal para el avistamiento de fauna y flora.
+                <br><br>Más allá de su riqueza natural, el Páramo de Siscunsí es un lugar de gran valor cultural e histórico. Durante siglos, ha sido parte del territorio de los Muiscas, quienes veneraban sus lagunas como espacios sagrados. Hoy, sigue siendo un sitio de conexión espiritual y reflexión, perfecto para quienes buscan un escape de la rutina y una experiencia de inmersión en la naturaleza.
+                Para los amantes del ecoturismo y el senderismo, este páramo ofrece rutas espectaculares que permiten recorrer sus paisajes llenos de vida y respirar el aire puro de las montañas. Explorar el Páramo de Siscunsí es más que una simple visita; es una aventura que invita a valorar y proteger uno de los ecosistemas más frágiles y esenciales del planeta.
+                <br><br>🌿Ven y descubre la magia del Páramo de Siscunsí. Un santuario natural que te espera con su inmensa biodiversidad y paisajes inolvidables..</h4>
+        </div>
+        <br>
+        <div class="fondo">
+            <center>
+            <h2><i class="fas fa-video"></i> Explorando la Magia del Páramo</h2>  
+            <br><iframe src="https://www.youtube.com/embed/BLnTMUgecyQ?si=mgL3UP4YOypNL8jq" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen class="video"></iframe>
+            </center>
+        </div>
+        <br>
+        <div class="fondo">
+            <center>
+                <h2>📞 Teléfonos de Emergencia</h2>
+            <input type="text" id="search" placeholder="🔍 Buscar entidad..." onkeyup="filtrarTabla()">
+        </center>
+            <table>
+                <thead>
+                    <tr>
+                        <th>📌 ENTIDAD</th>
+                        <th>📞 TELÉFONO</th>
+                        <th>📝 SERVICIOS</th>
+                    </tr>
+                </thead>
+                <tbody id="tabla-emergencia">
+                    <tr>
+                        <td>Jefe Oficina Gestión de Riesgos</td>
+                        <td>(608) 7702040</td>
+                        <td>Coordinación de emergencias</td>
+                    </tr>
+                    <tr>
+                        <td>Cruz Roja Colombiana</td>
+                        <td>3144213394</td>
+                        <td>Ambulancias y rescate</td>
+                    </tr>
+                    <tr>
+                        <td>Defensa Civil</td>
+                        <td>3132620844</td>
+                        <td>Ambulancia y rescate</td>
+                    </tr>
+                    <tr>
+                        <td>Cuerpo de Bomberos Voluntarios</td>
+                        <td>3132959347</td>
+                        <td>Atención de Incendios, inundaciones y Sustancias Peligrosas.</td>
+                    </tr>
+                    <tr>
+                        <td>Policia Ambiental</td>
+                        <td>3233207507 - 3105695363</td>
+                        <td>Controlar el cumplimiento de las normas de protección ambiental
+                            <br>
+                            Controlar el tráfico de biodiversidad
+                            <br>
+                            Controlar el maltrato animal
+                            <br>
+                            Controlar la contaminación visual
+                            <br>
+                            Controlar la contaminación atmosférica
+                            <br>
+                            Mitigar los impactos ambientales
+                            <br>
+                            Promover el uso racional de los recursos naturales</td>
+                    </tr>
+                    <tr>
+                        <td>Comandante Policia Ambiental</td>
+                        <td>3144432796</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Corpoboyaca Atencion Al Usuario</td>
+                        <td>3104810294</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Subdireccion Ecosistemas Estrategicos</td>
+                        <td>3143454423</td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-brand">
+                <img src="{% static 'imagenes/ecoparm.png' %}" alt="ECOPARM" class="footer-logo">
+                <p>Protegiendo los páramos colombianos</p>
+                <br>
+                <p>Horarios de Atencion</p>
+                <p><i class="far fa-clock"></i> Lunes a Viernes</p>
+                <p>8:00 am - 12:00 pm</p>
+                <p>2:00 pm - 5:00 pm</p>
+            </div>
+        
+            <div class="footer-links">
+                <h3>Enlaces rápidos</h3>
+                <ul>
+                    <li><a href="{% url 'index' %}">Inicio</a></li>
+                    <li><a href="{% url 'nosotros' %}">Nosotros</a></li>
+                    <li><a href="{% url 'galeria' %}">Galería</a></li>
+                    <li><a href="{% url 'login' %}">Login</a></li>
+                </ul>
+            </div>
+        
+            <div class="footer-social">
+                <h3>Síguenos</h3>
+                <div class="social-icons">
+                    <a href="https://www.facebook.com/share/1BKxxcqc5y/?mibextid=wwXIfr" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.instagram.com/alcaldiadesogamoso?igsh=MWFvOG43bGxkdHJudA==" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.tiktok.com/@alcaldiasogamosoficial?_t=ZS-8vECL5TQSOe&_r=1" target="_blank"><i class="fab fa-tiktok"></i></a>
+                </div>
+            </div>
+        
+            <div class="footer-contactanos">
+                <h3>Contáctanos</h3>
+                <ul>
+                    <li><a href="mailto:habitad@ogamoso-boyaca.gov.co"><i class="fas fa-envelope"></i> habitad@ogamoso-boyaca.gov.co</a></li>                    
+                    <li><a href="tel:6087702040"><i class="fas fa-phone"></i> (608) 7702040</a></li>                    
+                    <li><a href="https://maps.google.com/?q=Cra. 11 #14-164, Sogamoso" target="_blank"><i class="fas fa-map-marker-alt"></i> Cra. 11 #14-164, Sogamoso </a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2024 ECOPARM. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+</body>
+</html>

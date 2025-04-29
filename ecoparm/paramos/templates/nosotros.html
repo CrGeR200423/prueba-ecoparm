@@ -1,0 +1,247 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="{% static 'imagenes/logo_oficina_gestion_riesgo.png' %}">
+    <title>NOSOTROS - ECOPARM</title>
+    <link rel="stylesheet" href="{% static 'css/style_nosotros.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style_clima.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style_accesibilidad.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style_loader.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Shrikhand&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Allura&display=swap" rel="stylesheet">
+    <script src="{% static 'js/script_loader.js' %}" defer></script>
+    <script src="{% static 'js/script_clima.js' %}" defer></script>
+    <script src="{% static 'js/script_accesibilidad2.js' %}" defer></script>
+    <script src="{% static 'js/script_historia_responsive.js' %}" defer></script>
+</head>
+
+<body>
+    <div id="overlay">
+        <img class="loader-bird" src="{% static 'imagenes/fondo_loader.gif' %}" alt="Pájaro en los páramos">
+        <div class="loader-text">Cargando...</div>
+    </div>
+
+    <nav>
+        <input type="checkbox" id="check">
+        <label for="check" class="checkbtn">
+            <i class="fas fa-bars"></i>
+        </label>
+        <a href="{% url 'index' %}" class="enlace">
+            <img src="{% static 'imagenes/logo_oficina_gestion_riesgo.png' %}" class="logoeco">
+        </a>
+        <ul>
+            <li><a href="{% url 'index' %}"><i class="fas fa-home"></i> Inicio</a></li>
+            <li><a href="{% url 'nosotros' %}"><i class="fas fa-users"></i> Nosotros</a></li>
+            <li><a href="{% url 'galeria' %}"><i class="fas fa-images"></i> Galería</a></li>
+            <li><a href="{% url 'login' %}"><i class="fas fa-sign-in-alt"></i> Login</a></li>
+        </ul>
+    </nav>
+    <main>
+        <button id="toggleClima">
+            🌦️ <span id="textoClima" style="display: none;"></span>
+        </button>
+        <div id="clima">
+            <h3 id="ciudad">Sogamoso</h3>
+            <p id="temperatura">🌡️ --°C</p>
+            <p id="humedad">💧 Humedad: --%</p>
+            <p id="descripcion">☁️ --</p>
+        </div>
+    </main>
+    <section>
+        <br><br><br>
+        
+        <div class="fondo">
+            <center>
+                <h2><i class="fas fa-users"></i> Nosotros</h2>
+            </center>
+            <br>
+            <div class="row">
+                <div class="mision">
+                    <h3><i class="fas fa-bullseye"></i> Misión</h3>
+                    <br>
+                    <h4>
+                        Genera resultados de impacto social, que redunden en el bienestar integral de los Habitantes
+                        del Municipio de Sogamoso, articulando la efectiva gestión administrativa orientada al
+                        Desarrollo Sostenible, con la participación activa de nuestros ciudadanos, bajo los principios
+                        de transparencia y equidad.
+                    </h4>
+                </div>
+                <div class="vision">
+                    <h3><i class="fas fa-eye"></i> Visíon</h3>
+                    <br>
+                    <h4>
+                        En el año 2024, Sogamoso la ciudad del Sol es reconocida por sus altos niveles de competitividad,
+                        resultado de un proceso que permitió identificar y aprovechar las bondades del territorio y de su
+                        gente, afianzando el arraigo, el trabajo en equipo y la cultura ciudadana.
+                    </h4>
+                </div>
+            </div>
+        </div>
+        <br>
+        <div class="fondo">
+            <center>
+                <h2><i class="fas fa-landmark"></i> Historia</h2>
+            </center>
+            <br>
+            
+            <div class="historia-item">
+                <center>
+                    <h2><i class="fas fa-building"></i> Oficina de Gestión del Riesgo y Ambiente de Sogamoso</h2>
+                </center>
+                <br>
+                <h4>
+                    La Oficina de Gestión del Riesgo y Ambiente de Sogamoso es una entidad municipal estratégica creada en 2012 para coordinar 
+                    y ejecutar políticas de prevención, mitigación y respuesta ante emergencias. Nació como respuesta a las crecientes necesidades 
+                    de protección ambiental y gestión de riesgos en la región.
+                </h4>
+                <p id="mostrarTexto1" class="mostrar-texto">Ver más...</p>
+                <div id="textoOculto1" class="texto-oculto">
+                    <h4>
+                        <strong>Evolución Histórica:</strong><br>
+                        - 2012: Creación oficial con apoyo del gobierno departamental<br>
+                        - 2014: Implementación del primer sistema de alertas tempranas<br>
+                        - 2016: Adquisición de equipos especializados para monitoreo ambiental<br>
+                        - 2018: Certificación en sistemas de gestión de calidad ISO 9001<br>
+                        - 2020: Ampliación de cobertura al 100% del territorio municipal
+                        
+                        <br><br><strong>Logros Destacados:</strong><br>
+                        - Reducción del 60% en tiempos de respuesta a emergencias<br>
+                        - Capacitación de más de 5,000 personas en prevención de riesgos<br>
+                        - Implementación del programa "Escuelas Seguras" en 32 instituciones<br>
+                        - Recuperación de 15 hectáreas de zonas degradadas
+                        
+                        <br><br><strong>Estructura Actual:</strong><br>
+                        - Unidad de Monitoreo Ambiental (24/7)<br>
+                        - Brigada de Respuesta Rápida (30 miembros capacitados)<br>
+                        - Centro de Operaciones de Emergencia (COE)<br>
+                        - Sistema Integrado de Comunicaciones
+                    </h4>
+                </div>
+            </div>
+            <br>
+            <div class="historia-item">
+                <center>
+                    <h2><i class="fas fa-mountain"></i> Páramo de Siscunsí: Corazón Ecológico de Boyacá</h2>
+                </center>
+                <br>
+                <h4>
+                    El Páramo de Siscunsí, con sus 42,000 hectáreas, es uno de los ecosistemas más importantes del nororiente colombiano. 
+                    Su nombre proviene del vocablo muisca que significa "lugar donde nace el agua", reflejando su importancia hídrica ancestral.
+                </h4>
+                <p id="mostrarTexto2" class="mostrar-texto">Ver más...</p>
+                <div id="textoOculto2" class="texto-oculto">
+                    <h4>
+                        <strong>Patrimonio Natural:</strong><br>
+                        - Altitud: 3,200 - 4,000 msnm<br>
+                        - Temperatura promedio: 4°C - 12°C<br>
+                        - 12 cuerpos de agua principales<br>
+                        - 300+ especies de flora (35 endémicas)<br>
+                        - 45 especies de aves, 18 de mamíferos
+
+                        <br><br><strong>Importancia Estratégica:</strong><br>
+                        - Provee el 40% del agua para Sogamoso y municipios aledaños<br>
+                        - Regula el clima regional<br>
+                        - Alberga especies emblemáticas como el oso de anteojos<br>
+                        - Reservorio genético de flora altoandina
+
+                        <br><br><strong>Proyectos de Conservación:</strong><br>
+                        1. Guardianes del Páramo (vigilancia comunitaria)<br>
+                        2. Restauración ecológica participativa<br>
+                        3. Investigación científica aplicada<br>
+                        4. Turismo sostenible regulado<br>
+                        5. Educación ambiental escolar
+
+                        <br><br><strong>Retos Actuales:</strong><br>
+                        - Cambio climático y variación de precipitaciones<br>
+                        - Presión por expansión agrícola<br>
+                        - Turismo no regulado<br>
+                        - Minería ilegal en zonas aledañas
+                    </h4>
+                </div>
+            </div>
+        </div>
+
+        <br>
+        <div class="fondo">
+            <center>
+                <h2><i class="fas fa-map-marked-alt"></i> Ubicaciones</h2>
+            </center>
+            <br>
+            <div class="row-full">
+                <div class="ubicacion">
+                    <h3><i class="fas fa-video"></i> Conócenos</h3>
+                    <br>
+                    <video id="video-ubicacion" class="video-full" muted>
+                        <source src="{% static 'media/video_ubicacion.mp4' %}" type="video/mp4">
+                    </video>
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="ubicacion">
+                    <h3><i class="fas fa-tree"></i> Parama de Siscunsí</h3>
+                    <br>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3970.505860147124!2d-72.79601142021873!3d5.639689679751475!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e6a4d69f00a940b%3A0x88ef1914f548f0a1!2zUMOhcmFtbyBkZSBTaXNjdW5zw60!5e0!3m2!1ses!2sco!4v1742474693734!5m2!1ses!2sco" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+
+                <div class="ubicacion">
+                    <h3><i class="fas fa-warehouse"></i> Oficina de Gestion del Riesgo</h3>
+                    <br>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d992.4909660275465!2d-72.92701923042803!3d5.718344699641485!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e6a45deea47d4d5%3A0xc44a465a5a8bb680!2sCra.%2011%20%2314-164%2C%20Sogamoso%2C%20Boyac%C3%A1!5e0!3m2!1ses!2sco!4v1742474581383!5m2!1ses!2sco" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-brand">
+                <img src="{% static 'imagenes/ecoparm.png' %}" alt="ECOPARM" class="footer-logo">
+                <p>Protegiendo los páramos colombianos</p>
+                <br>
+                <p>Horarios de Atencion</p>
+                <p><i class="far fa-clock"></i> Lunes a Viernes</p>
+                <p>8:00 am - 12:00 pm</p>
+                <p>2:00 pm - 5:00 pm</p>
+            </div>
+        
+            <div class="footer-links">
+                <h3>Enlaces rápidos</h3>
+                <ul>
+                    <li><a href="{% url 'index' %}">Inicio</a></li>
+                    <li><a href="{% url 'nosotros' %}">Nosotros</a></li>
+                    <li><a href="{% url 'galeria' %}">Galería</a></li>
+                    <li><a href="{% url 'login' %}">Login</a></li>
+                </ul>
+            </div>
+        
+            <div class="footer-social">
+                <h3>Síguenos</h3>
+                <div class="social-icons">
+                    <a href="https://www.facebook.com/share/1BKxxcqc5y/?mibextid=wwXIfr" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.instagram.com/alcaldiadesogamoso?igsh=MWFvOG43bGxkdHJudA==" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.tiktok.com/@alcaldiasogamosoficial?_t=ZS-8vECL5TQSOe&_r=1" target="_blank"><i class="fab fa-tiktok"></i></a>
+                </div>
+            </div>
+        
+            <div class="footer-contactanos">
+                <h3>Contáctanos</h3>
+                <ul>
+                    <li><a href="mailto:habitad@ogamoso-boyaca.gov.co"><i class="fas fa-envelope"></i> habitad@ogamoso-boyaca.gov.co</a></li>                    
+                    <li><a href="tel:6087702040"><i class="fas fa-phone"></i> (608) 7702040</a></li>                    
+                    <li><a href="https://maps.google.com/?q=Cra. 11 #14-164, Sogamoso" target="_blank"><i class="fas fa-map-marker-alt"></i> Cra. 11 #14-164, Sogamoso </a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2024 ECOPARM. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+</body>
+</html>

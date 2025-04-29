@@ -1,0 +1,155 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link class="minilogo" rel="icon" href="{% static 'imagenes/logo_oficina_gestion_riesgo.png' %}">
+    <title>PORTAFOLIO</title>
+    <link rel="stylesheet" href="{% static 'css/style_galeria.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style_clima.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style_accesibilidad.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style_loader.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Shrikhand&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Allura&display=swap" rel="stylesheet">
+    <script src="{% static 'js/scrip_btninicio.js' %}"></script>
+    <script src="{% static 'js/script_loader.js' %}"></script>
+    <script src="{% static 'js/script_galeria.js' %}"></script>
+    <script src="{% static 'js/script_clima.js' %}"></script>
+    <script src="{% static 'js/script_accesibilidad2.js' %}" defer></script>
+</head>
+<body>
+    <div id="overlay">
+        <img class="loader-bird" src="{% static 'imagenes/fondo_loader.gif' %}" alt="Pájaro en los páramos">
+        <div class="loader-text">Cargando...</div>
+    </div>
+  <nav>
+      <input type="checkbox" id="check">
+      <label for="check" class="checkbtn">
+          <i class="fas fa-bars"></i>
+      </label>
+      <a href="{% url 'index' %}" class="enlace">
+          <img src="{% static 'imagenes/logo_oficina_gestion_riesgo.png' %}" class="logoeco">
+      </a>
+      <ul>
+        <li><a href="{% url 'index' %}"><i class="fas fa-home"></i> Inicio</a></li>
+        <li><a href="{% url 'nosotros' %}"><i class="fas fa-users"></i> Nosotros</a></li>
+        <li><a href="{% url 'galeria' %}"><i class="fas fa-images"></i> Galería</a></li>
+        <li><a href="{% url 'login' %}"><i class="fas fa-sign-in-alt"></i> Login</a></li>
+    </ul>
+  </nav>
+  <main>
+    <button id="toggleClima">
+        🌦️ <span id="textoClima" style="display: none;"></span>
+    </button>
+    <div id="clima">
+        <h3 id="ciudad">Sogamoso</h3>
+        <p id="temperatura">🌡️ --°C</p>
+        <p id="humedad">💧 Humedad: --%</p>
+        <p id="descripcion">☁️ --</p>
+    </div>
+  </main>
+    <section>
+        <br>
+        <br>
+        <br>
+      <div class="fondo">
+        <center><h2><i class="fas fa-camera"></i> Galería de Imágenes</h2></center>
+        <div class="container">
+          <img src="{% static 'imagenes/portafolio/IMG1.jpg' %}" alt="Imagen 1" class="image">
+          <img src="{% static 'imagenes/portafolio/IMG2.jpg' %}" alt="Imagen 2" class="image">
+          <img src="{% static 'imagenes/portafolio/IMG3.jpg' %}" alt="Imagen 3" class="image">
+          <img src="{% static 'imagenes/portafolio/IMG4.jpg' %}" alt="Imagen 4" class="image">
+          <img src="{% static 'imagenes/portafolio/IMG5.jpg' %}" alt="Imagen 5" class="image">
+          <img src="{% static 'imagenes/portafolio/IMG6.jpg' %}" alt="Imagen 6" class="image">
+          <img src="{% static 'imagenes/portafolio/IMG7.jpg' %}" alt="Imagen 7" class="image">
+          <img src="{% static 'imagenes/portafolio/IMG8.jpg' %}" alt="Imagen 8" class="image">
+          <img src="{% static 'imagenes/portafolio/IMG9.jpg' %}" alt="Imagen 9" class="image">
+          <img src="{% static 'imagenes/portafolio/IMG10.jpg' %}" alt="Imagen 10" class="image">
+          <img src="{% static 'imagenes/portafolio/IMG11.jpg' %}" alt="Imagen 11" class="image">
+          <img src="{% static 'imagenes/portafolio/IMG12.jpg' %}" alt="Imagen 12" class="image">
+          <img src="{% static 'imagenes/portafolio/IMG13.jpg' %}" alt="Imagen 13" class="image">
+          <img src="{% static 'imagenes/portafolio/IMG14.jpg' %}" alt="Imagen 14" class="image">
+          <img src="{% static 'imagenes/portafolio/IMG15.jpg' %}" alt="Imagen 15" class="image">
+          <img src="{% static 'imagenes/portafolio/IMG16.jpg' %}" alt="Imagen 16" class="image">
+          <img src="{% static 'imagenes/portafolio/IMG17.jpg' %}" alt="Imagen 17" class="image">
+          <img src="{% static 'imagenes/portafolio/IMG18.jpg' %}" alt="Imagen 18" class="image">
+          <img src="{% static 'imagenes/portafolio/IMG19.jpg' %}" alt="Imagen 19" class="image">
+          <img src="{% static 'imagenes/portafolio/IMG20.jpg' %}" alt="Imagen 20" class="image">
+          <img src="{% static 'imagenes/portafolio/IMG21.jpg' %}" alt="Imagen 21" class="image">
+          <img src="{% static 'imagenes/portafolio/IMG22.jpg' %}" alt="Imagen 22" class="image">
+          <img src="{% static 'imagenes/portafolio/IMG23.jpg' %}" alt="Imagen 23" class="image">
+          <img src="{% static 'imagenes/portafolio/IMG24.jpg' %}" alt="Imagen 24" class="image">
+          <img src="{% static 'imagenes/portafolio/IMG25.jpg' %}" alt="Imagen 25" class="image">
+          <img src="{% static 'imagenes/portafolio/IMG26.jpg' %}" alt="Imagen 26" class="image">
+          <img src="{% static 'imagenes/portafolio/IMG27.jpg' %}" alt="Imagen 27" class="image">
+          <img src="{% static 'imagenes/portafolio/IMG28.jpg' %}" alt="Imagen 28" class="image">
+          <img src="{% static 'imagenes/portafolio/IMG29.jpg' %}" alt="Imagen 29" class="image">
+          <img src="{% static 'imagenes/portafolio/IMG30.jpg' %}" alt="Imagen 30" class="image">
+          <img src="{% static 'imagenes/portafolio/IMG31.jpg' %}" alt="Imagen 31" class="image">
+          <img src="{% static 'imagenes/portafolio/IMG32.jpg' %}" alt="Imagen 32" class="image">
+          <img src="{% static 'imagenes/portafolio/IMG33.jpg' %}" alt="Imagen 33" class="image">
+          <img src="{% static 'imagenes/portafolio/IMG34.jpg' %}" alt="Imagen 34" class="image">
+          <img src="{% static 'imagenes/portafolio/IMG35.jpg' %}" alt="Imagen 35" class="image">
+      </div>
+        <div id="image-overlay" class="image-overlay">
+          <div class="expanded-image-container">
+              <span id="close-btn" class="close-btn"> × </span>
+              <img id="expanded-image" class="expanded-image" src="" alt="Imagen expandida" />
+              <button id="prev-btn" class="nav-btn">←</button>
+              <button id="next-btn" class="nav-btn">→</button>
+          </div>
+      </div>
+      </div>
+      </div>
+    </section>
+    <button id="backToTop" onclick="scrollToTop()"> ↑ </button>
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-brand">
+                <img src="{% static 'imagenes/ecoparm.png' %}" alt="ECOPARM" class="footer-logo">
+                <p>Protegiendo los páramos colombianos</p>
+                <br>
+                <p>Horarios de Atencion</p>
+                <p><i class="far fa-clock"></i> Lunes a Viernes</p>
+                <p>8:00 am - 12:00 pm</p>
+                <p>2:00 pm - 5:00 pm</p>
+            </div>
+        
+            <div class="footer-links">
+                <h3>Enlaces rápidos</h3>
+                <ul>
+                    <li><a href="{% url 'index' %}">Inicio</a></li>
+                    <li><a href="{% url 'nosotros' %}">Nosotros</a></li>
+                    <li><a href="{% url 'galeria' %}">Galería</a></li>
+                    <li><a href="{% url 'login' %}">Login</a></li>
+                </ul>
+            </div>
+        
+            <div class="footer-social">
+                <h3>Síguenos</h3>
+                <div class="social-icons">
+                    <a href="https://www.facebook.com/share/1BKxxcqc5y/?mibextid=wwXIfr" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.instagram.com/alcaldiadesogamoso?igsh=MWFvOG43bGxkdHJudA==" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.tiktok.com/@alcaldiasogamosoficial?_t=ZS-8vECL5TQSOe&_r=1" target="_blank"><i class="fab fa-tiktok"></i></a>
+                </div>
+            </div>
+        
+            <div class="footer-contactanos">
+                <h3>Contáctanos</h3>
+                <ul>
+                    <li><a href="mailto:habitad@ogamoso-boyaca.gov.co"><i class="fas fa-envelope"></i> habitad@ogamoso-boyaca.gov.co</a></li>                    
+                    <li><a href="tel:6087702040"><i class="fas fa-phone"></i> (608) 7702040</a></li>                    
+                    <li><a href="https://maps.google.com/?q=Cra. 11 #14-164, Sogamoso" target="_blank"><i class="fas fa-map-marker-alt"></i> Cra. 11 #14-164, Sogamoso </a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+           <p>&copy; 2024 ECOPARM. Todos los derechos reservados.</p>
+
+       </div>
+    </footer>
+</body>
+</html>

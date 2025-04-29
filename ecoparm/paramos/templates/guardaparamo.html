@@ -1,0 +1,93 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link class="minilogo" rel="icon" href="{% static 'imagenes/logo_oficina_gestion_riesgo.png' %}">
+    <title>GUARDAPÁRAMO</title>
+    <link rel="stylesheet" href="{% static 'css/style_guardaparamo.css' %}">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Shrikhand&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Allura&display=swap" rel="stylesheet">
+    <script type="text/javascript" src="{% static 'script_inicio.js' %}" defer></script>
+    <script src="{% static 'js/script_loader.js' %}"></script>
+    <script src="{% static 'js/script_evidencias.js' %}"></script>
+</head>
+<body>
+    <div id="overlay" class="overlay-loader">
+        <div id="loader" class="loader"></div>
+    </div>
+    <div class="menu-lateral">
+        <ul>
+            <a href="{% url 'index' %}" class="enlace">
+                <img src="{% static 'imagenes/ecoparm.png' %}" class="Logo">
+            </a>
+            <li><a href="#">EVIDENCIAS</a></li>
+            <li><a href="{% url 'login' %}">CERRAR SESIÓN</a></li>
+        </ul>
+    </div>
+
+    <section class="contenido">
+        <div class="fondo">
+            <center>
+                <h1>¡EVIDENCIAS!</h1>
+            </center>
+            <br>
+            <div class="formulario">
+                <form id="formulario" enctype="multipart/form-data">
+                    <div class="campo">
+                        <label for="actividad">Actividad:</label>
+                        <input class="actividad" id="actividad" name="actividad" required></input>
+                    </div>
+        
+                    <div class="campo">
+                        <label for="imagen">Evidencia (Imagen):</label>
+                        <input type="file" id="imagen" name="imagen" accept="image/*" required>
+                    </div>
+        
+                    <div class="campo">
+                        <label for="ubicacion">Ubicación:</label>
+                        <input type="text" id="ubicacion" name="ubicacion" readonly placeholder="Haz clic para obtener tu ubicación">
+                    </div>
+        
+                    <div class="campo">
+                        <input type="button" value="Obtener Ubicación" onclick="obtenerUbicacion()">
+                    </div>
+        
+                    <div class="campo">
+                        <input type="button" value="Guardar Informe" onclick="enviarFormulario()">
+                    </div>
+                </form>
+        
+                <div id="informe">
+                    <table id="tablaInforme">
+                        <thead>
+                            <tr>
+                                <th>Fecha</th>
+                                <th>Actividad</th>
+                                <th>Ubicación</th>
+                                <th>Evidencia</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Los datos se agregarán aquí dinámicamente -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="logo_footer">
+                <img src="{% static 'imagenes/logo_oficina_gestion_riesgo.png' %}" class="logoeco">
+            </div>
+            <div class="texto_footer">
+                <p>&copy; 2024 ECOPARM. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

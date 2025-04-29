@@ -1,0 +1,56 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>LOGIN</title>
+    <link class="minilogo" rel="icon" href="{% static 'imagenes/logo_oficina_gestion_riesgo.png' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Shrikhand&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Allura&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/style_login.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style_loader.css' %}">
+    <script type="text/javascript" src="{% static 'js/script_login.js' %}" defer></script>
+    <script src="{% static 'js/script_loader.js' %}"></script>
+  </head>
+  <body>
+    <div id="overlay">
+      <img class="loader-bird" src="{% static 'imagenes/fondo_loader.gif' %}" alt="Pájaro en los páramos">
+      <div class="loader-text">Cargando...</div>
+  </div>
+    <div class="wrapper">
+      <div class="title">Inicio de Sesión</div>
+      <form id="loginForm">
+        <div class="field">
+          <select id="tipo-usuario" required>
+            <option value=""></option>
+            <option value="guardaparamo">Guardaparamo</option>
+            <option value="administrador">Administrador</option>
+          </select>
+          <label for="tipo-usuario">Tipo Usuario</label>
+        </div>
+        <div class="field">
+          <input type="text" id="email" required>
+          <label>Usuario</label>
+        </div>
+        <div class="field">
+          <input type="password" id="password" required>
+          <label>Contraseña</label>
+        </div>
+        <br>
+        <div class="checkbox">
+          <input type="checkbox" id="accept-terms" required>
+            Acepto <a type="politica" href="#" target="_blank">Términos y Condiciones</a> y 
+            <a href="#" target="_blank" class="terms-link">Política de Privacidad</a>
+        </div>
+        <div class="content">
+          <div class="pass-link"><a href="{% url 'recuperar_contraseña' %}">¿Has olvidado tu contraseña?</a></div>
+        </div>
+        <div class="field">
+          <input type="submit" value="Login">
+          <div class="pass-link"><a href="{% url 'administrador' %}">login</a></div>
+        </div>
+        <div class="signup-link"><a href="{% url 'index' %}">REGRESAR</a></div>
+      </form>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,32 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es" dir="ltr">
+<head>
+    <meta charset="utf-8">
+    <title>Recuperar Contraseña</title>
+    <link class="minilogo" rel="icon" href="{% static 'imagenes/logo_oficina_gestion_riesgo.png' %}">
+    <link rel="stylesheet" href="{% static 'css/style_login.css' %}">
+    <script src="{% static 'js/script_loader.js' %}"></script>
+    <script src="{% static 'js/script_validarcorreo.js' %}"></script>
+</head>
+<body>
+    <div id="overlay" class="overlay-loader">
+        <div id="loader" class="loader"></div>
+    </div>
+    <div class="wrapper">
+        <div class="title">Recuperar Contraseña</div>
+        <form action="#" onsubmit="return validarcorreo()">
+            <div class="field">
+                <input type="email" id="correo" required>
+                <label>Correo Electrónico Registrado</label>
+            </div>
+            <div class="field">
+                <input type="submit" value="Recuperar">
+            </div>
+            <div class="signup-link">
+                <a href="{% url 'login' %}">REGRESAR</a>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
