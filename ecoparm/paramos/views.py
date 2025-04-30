@@ -1,3 +1,4 @@
+from urllib import response
 from django.shortcuts import render
 
 # Create your views here.
@@ -44,14 +45,13 @@ def admin_page(request):
                 'apellido': request.POST.get('apellido').strip(),
                 'cedula': request.POST.get('identificacion').strip(),
                 'telefono': request.POST.get('telefono').strip(),
-                'correo': request.POST.get('email').strip().lower(),
+                'email': request.POST.get('email').strip().lower(),  # Cambiado de 'correo' a 'email'
                 'genero': request.POST.get('genero'),
                 'password': request.POST.get('password'),
                 'rol_nombre': request.POST.get('rol').capitalize(),
                 'zona_nombre': request.POST.get('zona').capitalize()
             }
 
-            # 2. Validaciones básicas
             # 2. Validaciones básicas
             if not all(form_data.values()):
                 if request.headers.get('x-requested-with') == 'XMLHttpRequest':
@@ -64,7 +64,8 @@ def admin_page(request):
                     return JsonResponse({'error': 'Las contraseñas no coinciden'}, status=400)
                 messages.error(request, 'Las contraseñas no coinciden')
                 return redirect('administrador')
-            # 3. Manejo de Rol y Zona (creación si no existen)
+
+            # 3. Manejo de Rol y Zona
             rol, _ = Rol.objects.get_or_create(rol=form_data['rol_nombre'])
             zona, _ = Zona.objects.get_or_create(nombre=form_data['zona_nombre'])
 
@@ -74,7 +75,7 @@ def admin_page(request):
                 nombre=form_data['nombre'],
                 apellido=form_data['apellido'],
                 telefono=form_data['telefono'],
-                correo=form_data['correo'],
+                email=form_data['email'],  # Asegúrate que coincida con el modelo
                 genero=form_data['genero'],
                 password=form_data['password'],
                 rol=rol,
@@ -82,20 +83,23 @@ def admin_page(request):
             )
 
             # 5. Respuesta según tipo de solicitud
+            success_message = f'Usuario {user.nombre} {user.apellido} creado exitosamente!'
+            
             if request.headers.get('x-requested-with') == 'XMLHttpRequest':
                 return JsonResponse({
-                    'message': f'Usuario {user.get_full_name()} creado exitosamente!',
+                    'message': success_message,
                     'redirect': reverse('administrador')
-                })
+                }, status=200)
             
-            messages.success(request, f'Usuario {user.get_full_name()} creado exitosamente!')
+            messages.success(request, success_message)
             return redirect('administrador')
 
         except Exception as e:
+            error_message = f'Error al crear usuario: {str(e)}'
             if request.headers.get('x-requested-with') == 'XMLHttpRequest':
-                return JsonResponse({'error': f'Error al crear usuario: {str(e)}'}, status=500)
+                return JsonResponse({'error': error_message}, status=500)
             
-            messages.error(request, f'Error al crear usuario: {str(e)}')
+            messages.error(request, error_message)
             return redirect('administrador')
 
     # GET request

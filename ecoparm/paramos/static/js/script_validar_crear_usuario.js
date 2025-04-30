@@ -38,16 +38,25 @@ document.addEventListener("DOMContentLoaded", function () {
         toast.textContent = mensaje;
 
         // Estilos según el tipo de mensaje
-        if (tipo === "success") toast.classList.add("success");
-        else if (tipo === "info") toast.classList.add("info");
-        else if (tipo === "warning") toast.classList.add("warning");
-        else toast.classList.add("error"); // Por defecto
+        if (tipo === "success") {
+            toast.classList.add("success");
+            toast.style.backgroundColor = "#4CAF50"; // Verde
+        } else if (tipo === "info") {
+            toast.classList.add("info");
+            toast.style.backgroundColor = "#2196F3"; // Azul
+        } else if (tipo === "warning") {
+            toast.classList.add("warning");
+            toast.style.backgroundColor = "#ff9800"; // Naranja
+        } else {
+            toast.classList.add("error"); // Por defecto
+            toast.style.backgroundColor = "#f44336"; // Rojo
+        }
 
         toast.classList.add("show");
 
         setTimeout(() => {
             toast.classList.remove("show");
-        }, 3000);
+        }, 5000); // Aumenté el tiempo a 5 segundos
     }
 
     // Limitar entrada a números en campos numéricos
@@ -73,7 +82,8 @@ document.addEventListener("DOMContentLoaded", function () {
         e.preventDefault(); // Prevenir el envío tradicional
         
         let hayErrores = false;
-        campos.errorMensaje.textContent = "";
+        if (campos.errorMensaje) campos.errorMensaje.textContent = "";
+        if (campos.mensaje) campos.mensaje.textContent = "";
 
         // Obtener valores
         const valores = {
@@ -93,7 +103,7 @@ document.addEventListener("DOMContentLoaded", function () {
         for (const [key, val] of Object.entries(valores)) {
             if (!val && key !== 'genero') { // Género es opcional
                 mostrarToast(`El campo ${key} es obligatorio`, "error");
-                campos[key].focus();
+                if (campos[key]) campos[key].focus();
                 hayErrores = true;
                 break;
             }
@@ -138,6 +148,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
         // Prevenir envío si hay errores
         if (hayErrores) {
+            submitBtn.disabled = false;
+            submitBtn.value = "Crear Usuario";
             return;
         }
 
@@ -162,23 +174,50 @@ document.addEventListener("DOMContentLoaded", function () {
 
             if (response.ok) {
                 mostrarToast(data.message || "Usuario creado exitosamente", "success");
+                
+                // Mostrar mensaje en el elemento específico
+                if (campos.mensaje) {
+                    campos.mensaje.textContent = data.message || "Usuario creado exitosamente";
+                    campos.mensaje.style.color = "#4CAF50";
+                    campos.mensaje.style.fontWeight = "bold";
+                }
+                
+                // Limpiar el formulario
                 form.reset();
                 
                 // Si hay redirección en la respuesta
                 if (data.redirect) {
                     setTimeout(() => {
                         window.location.href = data.redirect;
-                    }, 1500);
+                    }, 2000);
                 }
             } else {
                 mostrarToast(data.error || "Error al crear usuario", "error");
+                if (campos.mensaje) {
+                    campos.mensaje.textContent = data.error || "Error al crear usuario";
+                    campos.mensaje.style.color = "#f44336";
+                }
             }
         } catch (error) {
             mostrarToast("Error de conexión: " + error.message, "error");
             console.error("Error:", error);
+            if (campos.mensaje) {
+                campos.mensaje.textContent = "Error de conexión";
+                campos.mensaje.style.color = "#f44336";
+            }
         } finally {
             submitBtn.disabled = false;
             submitBtn.value = "Crear Usuario";
+        }
+    });
+
+    // Opcional: Limpiar mensajes cuando el usuario comienza a editar
+    Object.values(campos).forEach(campo => {
+        if (campo && campo.addEventListener) {
+            campo.addEventListener('input', () => {
+                if (campos.mensaje) campos.mensaje.textContent = "";
+                if (campos.errorMensaje) campos.errorMensaje.textContent = "";
+            });
         }
     });
 });

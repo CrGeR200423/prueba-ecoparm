@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 
 from pathlib import Path
-
+import os
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -79,8 +79,12 @@ AUTH_USER_MODEL = 'paramos.CustomUser'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'ecoparm',
+        'USER': 'cristian',
+        'PASSWORD': '1053584023',  # Si no tienes contraseña en XAMPP, déjalo vacío
+        'HOST': 'localhost',
+        'PORT': '5432',  # Puerto correcto de Postg
     }
 }
 

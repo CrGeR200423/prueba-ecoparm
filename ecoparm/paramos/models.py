@@ -46,6 +46,18 @@ class CustomUserManager(BaseUserManager):
         extra_fields.setdefault("is_staff", True)
         extra_fields.setdefault("is_superuser", True)
         return self.create_user(cedula, nombre, apellido, telefono, email, genero, password, **extra_fields)
+    
+    def get_full_name(self):
+        """
+        Devuelve el nombre completo del usuario.
+        """
+        return f"{self.nombre} {self.apellido}"
+    
+    def get_short_name(self):
+        """
+        Devuelve el nombre corto del usuario (solo el nombre).
+        """
+        return self.nombre
 
 # ------------------------------
 # Modelo de usuario personalizado
